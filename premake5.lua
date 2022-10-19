@@ -82,10 +82,7 @@ else
     if GLFW_BUILD_SHARED_LIBRARY then
         GLFW_LIBRARY_TYPE = "SharedLib"
     else
-        if (GLFW_LIBRARY_TYPE == "STATIC") or (GLFW_LIBRARY_TYPE == "StaticLib") then
         GLFW_LIBRARY_TYPE = "StaticLib"
-        else
-            GLFW_LIBRARY_TYPE = "SharedItems"
     end
 end
 
