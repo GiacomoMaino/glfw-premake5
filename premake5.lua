@@ -35,12 +35,15 @@ GLFW_BUILD_WAYLAND  = false
 
 if (os.get() == "windows" or WIN32) then
     GLFW_BUILD_WIN32 = true
+    WIN32 = true
 end
 if (os.get() == "macosx" or APPLE) then
     GLFW_BUILD_COCOA = true
+    APPLE = true
 end
-if os.get() == "linux" or os.get() == "solaris" or os.get() == "bsd" then
+if (os.get() == "linux" or os.get() == "solaris" or os.get() == "bsd" or UNIX) then
     GLFW_BUILD_X11 = true
+    UNIX = true
     if GLFW_USE_WAYLAND then
         GLFW_BUILD_WAYLAND = true
     end
