@@ -66,12 +66,22 @@ end
 --------------------------------------
 if not (GLFW_LIBRARY_TYPE == nil) then
     if (GLFW_LIBRARY_TYPE == "SHARED") or (GLFW_LIBRARY_TYPE == "SharedLib") then
+        GLFW_LIBRARY_TYPE = "SharedLib"
         GLFW_BUILD_SHARED_LIBRARY = true
     else
         GLFW_BUILD_SHARED_LIBRARY = false
+        GLFW_LIBRARY_TYPE = "StaticLib"
     end
 else
     GLFW_BUILD_SHARED_LIBRARY = BUILD_SHARED_LIBS
+    if GLFW_BUILD_SHARED_LIBRARY then
+        GLFW_LIBRARY_TYPE = "SharedLib"
+    else
+        if (GLFW_LIBRARY_TYPE == "STATIC") or (GLFW_LIBRARY_TYPE == "StaticLib") then
+        GLFW_LIBRARY_TYPE = "StaticLib"
+        else
+            GLFW_LIBRARY_TYPE = "SharedItems"
+    end
 end
 
 if GLFW_BUILD_DOCS then
