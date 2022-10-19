@@ -1,3 +1,5 @@
+GLFW_SOURCE_DIR = os.getcwd()
+
 project "GLFW"
     language "C"
     GLFW_VERSION = "3.4.0"
@@ -31,10 +33,10 @@ GLFW_BUILD_COCOA    = false
 GLF_BUILD_X11       = false
 GLFW_BUILD_WAYLAND  = false
 
-if os.get() == "windows" then
+if (os.get() == "windows" or WIN32) then
     GLFW_BUILD_WIN32 = true
 end
-if os.get() == "macosx" then
+if (os.get() == "macosx" or APPLE) then
     GLFW_BUILD_COCOA = true
 end
 if os.get() == "linux" or os.get() == "solaris" or os.get() == "bsd" then
