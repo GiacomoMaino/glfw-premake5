@@ -1,7 +1,6 @@
 project "GLFW"
     language "C"
     GLFW_VERSION = "3.4.0"
-    platforms {"WIN32", "APPLE", "UNIX"}
 
 -------------------------------------
 -- Set Basic Flags
